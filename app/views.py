@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.core.paginator import Paginator
 from app.models import *
-from pharmacy.models import *
+
 from blog.models import *
 from django.http import JsonResponse
 from django.template.loader import render_to_string
@@ -16,7 +16,7 @@ def home(request):
     banners_2 = Banner.objects.all().order_by('-id')[3:5]
       
     meida_galler = Media.objects.filter().order_by('-id')[0:10]
-    doctors = Doctor.objects.all().order_by('-id')[0:2]
+
     department = DepartMent.objects.all()
     service = Service.objects.all()[0:4]
     tpas = Tpa.objects.all()
@@ -35,7 +35,6 @@ def home(request):
         'department': department,        
         'tpas': tpas,
         'meida_galler': meida_galler,
-        'doctors': doctors,
         'social_media': social_media,
         'upcoming': upcoming,
         'completate': completate,
